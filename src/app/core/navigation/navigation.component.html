@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngIf="selectedRoleVal ==  'admin' || selectedRoleVal ==  'a' || selectedRoleVal ==  'c'">
+            <a class="nav-link" [routerLink]="['/mylink1']">My Link1</a>
+          </li>
+          <li class="nav-item" *ngIf="selectedRoleVal ==  'admin' || selectedRoleVal ==  'a' || selectedRoleVal ==  'b' || selectedRoleVal ==  'c'">
+            <a class="nav-link" [routerLink]="['/mylink2']">My Link2</a>
+          </li>
+          <li class="nav-item" *ngIf="selectedRoleVal ==  'admin'|| selectedRoleVal ==  'b' || selectedRoleVal ==  'c'">
+            <a class="nav-link" [routerLink]="['/mylink3']">My Link3</a>
+          </li>
+          <li class="nav-item" *ngIf="selectedRoleVal ==  'admin'|| selectedRoleVal ==  'b' || selectedRoleVal ==  'c'">
+            <a class="nav-link" [routerLink]="['/mylink4']">My Link4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/feedback']">Feedback</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav d-flex bg-primary">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ROLE {{selectedRoleVal | uppercase}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" (click)="selectedRole('a')">Role 'A'</a></li>
+              <li><a class="dropdown-item" (click)="selectedRole('b')">Role 'B'</a></li>
+              <li><a class="dropdown-item" (click)="selectedRole('c')">Role 'C'</a></li>
+              <li><a class="dropdown-item" (click)="selectedRole('admin')">Role Admin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

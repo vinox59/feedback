@@ -1,0 +1,29 @@
+<div class="feedback-container">
+    <ng-container *ngIf="!isSubmitted">
+        <h2>Feedback/Contact:</h2>
+        <p>Please Share your feedback about applications. It help us to improve the quality.</p>
+        <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="fullName" class="form-label">Full Name*: </label>
+                <input id="fullName" type="text" formControlName="fullName" name="fullName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email*: </label>
+                <input id="email" type="email" formControlName="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="form-label">Phone Number: </label>
+                <input id="phoneNumber" type="text" formControlName="phoneNumber" name="phoneNumber" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="message" class="form-label">Your Message: </label>
+                <textarea id="message" formControlName="message" name="message" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary mt-3" [disabled]="!feedbackForm.valid">Submit</button>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="isSubmitted">
+        <h2 class="italic">Thank you {{feedbackForm.value.fullName}}</h2>
+        <p>Your feedback is Submitted Successfully.</p>
+    </ng-container>
+</div>
